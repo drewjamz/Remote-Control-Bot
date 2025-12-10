@@ -1,9 +1,8 @@
 import asyncio
 import websockets
 
-# How many samples to collect before printing a calibration summary
-CALIBRATION_SAMPLES = 80       # you can change this
-PROGRESS_EVERY = 20             # print a small progress note every N samples (set to None to disable)
+CALIBRATION_SAMPLES = 80       
+PROGRESS_EVERY = 20             
 
 def parse_sample(message: str):
     """
@@ -98,9 +97,6 @@ async def handler(websocket):
                 print(f"  DEG_MIN  = {right_deg_min}")
                 print(f"  DEG_MAX  = {right_deg_max}")
                 print("=========================================\n")
-
-                # If you ever want the bot to know calibration finished:
-                # await websocket.send("CALIB_DONE")
 
                 reset_stats()
 
